@@ -1,3 +1,6 @@
-project('demo', 'c', default_options : ['c_std=c11'])
+project('ade', 'c', default_options : ['c_std=c11'])
+
 shmif = dependency('arcan-shmif')
-executable('demo', 'main.c', dependencies : shmif)
+incdir = include_directories('/usr/local/include/arcan/shmif')
+
+executable('ade', 'main.c', include_directories : incdir, dependencies : shmif)
